@@ -3,27 +3,34 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-<div id="calculadora">
+<div class="calculadora">
 
-  <input [(ngModel)]="ecuacion" placeholder="0" disabled>
+  <input class="input" [(ngModel)]="ecuacion" placeholder="0" disabled>
   <br>
+<div>
   <button class="button" (click)="numero(1)">1</button>
   <button class="button" (click)="numero(2)">2</button>
   <button class="button" (click)="numero(3)">3</button>
+  <button class="button" (click)="operacion('+')">+</button>
+</div>
+<div>
   <button class="button" (click)="numero(4)">4</button>
   <button class="button" (click)="numero(5)">5</button>
   <button class="button" (click)="numero(6)">6</button>
+  <button class="button" (click)="operacion('-')">-</button>
+</div>
+<div>
   <button class="button" (click)="numero(7)">7</button>
   <button class="button" (click)="numero(8)">8</button>
   <button class="button" (click)="numero(9)">9</button>
-  <button class="button" (click)="numero(0)">0</button>
-  <button class="button" (click)="operacion('+')">+</button>
-  <button class="button" (click)="operacion('-')">-</button>
   <button class="button" (click)="operacion('*')">x</button>
-  <button class="button" (click)="operacion('/')">%</button>
+</div>
+<div>
+  <button class="button" (click)="numero(0)">0</button>
   <button class="button" (click)="limpiar()">C</button>
   <button class="button" (click)="resultado()">=</button>
-
+  <button class="button" (click)="operacion('/')">/</button>
+</div>
 </div>
   `
 })
@@ -93,4 +100,5 @@ export class AppComponent {
   limpiar(){
     this.ecuacion = '';
   };
+
 }
