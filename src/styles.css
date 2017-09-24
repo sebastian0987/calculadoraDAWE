@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.button{
+    color: white;
+    background-color: black;
+}
+
+.input{
+    background-color: white;
+    color: black;
+    border-color: blue;
+}
