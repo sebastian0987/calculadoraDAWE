@@ -5,32 +5,34 @@ import { Component } from '@angular/core';
   template: `
 <div class="calculadora">
 
-  <input class="input" [(ngModel)]="ecuacion" placeholder="0" disabled>
+  <div class="display"><input class="input" [(ngModel)]="ecuacion" placeholder="0" disabled></div>
   <br>
-<div>
-  <button class="button" (click)="numero(1)">1</button>
-  <button class="button" (click)="numero(2)">2</button>
-  <button class="button" (click)="numero(3)">3</button>
-  <button class="button" (click)="operacion('+')">+</button>
-</div>
-<div>
-  <button class="button" (click)="numero(4)">4</button>
-  <button class="button" (click)="numero(5)">5</button>
-  <button class="button" (click)="numero(6)">6</button>
-  <button class="button" (click)="operacion('-')">-</button>
-</div>
-<div>
-  <button class="button" (click)="numero(7)">7</button>
-  <button class="button" (click)="numero(8)">8</button>
-  <button class="button" (click)="numero(9)">9</button>
-  <button class="button" (click)="operacion('*')">x</button>
-</div>
-<div>
-  <button class="button" (click)="numero(0)">0</button>
-  <button class="button" (click)="limpiar()">C</button>
-  <button class="button" (click)="resultado()">=</button>
-  <button class="button" (click)="operacion('/')">/</button>
-</div>
+  <div class="keys">
+    <p>
+      <button class="button gray" (click)="numero(7)">7</button>
+      <button class="button gray" (click)="numero(8)">8</button>
+      <button class="button gray" (click)="numero(9)">9</button>
+      <button class="button pink" (click)="operacion('+')">+</button>
+    </p>
+    <p>
+      <button class="button gray" (click)="numero(4)">4</button>
+      <button class="button gray" (click)="numero(5)">5</button>
+      <button class="button gray" (click)="numero(6)">6</button>
+      <button class="button pink" (click)="operacion('-')">-</button>
+    </p>
+    <p>
+      <button class="button gray" (click)="numero(1)">1</button>
+      <button class="button gray" (click)="numero(2)">2</button>
+      <button class="button gray" (click)="numero(3)">3</button>
+      <button class="button pink" (click)="operacion('*')">x</button>
+    </p>
+    <p>
+      <button class="button gray" (click)="numero(0)">0</button>
+      <button class="button gray" (click)="limpiar()">C</button>
+      <button class="button orange" (click)="resultado()">=</button>
+      <button class="button pink" (click)="operacion('/')">/</button>
+    </p>
+  </div>
 </div>
   `
 })
@@ -38,13 +40,13 @@ export class AppComponent {
   ecuacion = '';
   ecuacionTerminada = false;
 
-  numero (numero:number) {
-    if(this.ecuacionTerminada || this.ecuacion == 'ERROR'){
+  numero (numero: number) {
+    if (this.ecuacionTerminada || this.ecuacion === 'ERROR') {
       this.ecuacionTerminada = false;
       this.ecuacion = '';
     }
     this.ecuacion += numero;
-  };
+  }
 
   operacion (operacion:string) {
     if (this.ecuacion != '' &&
